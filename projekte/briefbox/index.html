@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Briefbox · threedelex</title>
+<meta name="description" content="Briefständer mit vier gestuften Fächern (in Arbeit).">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0f1a2b">
+<link rel="icon" href="../../assets/bilder/zeichen.png">
+<link rel="stylesheet" href="../../assets/css/stil.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<header class="kopf">
+  <div class="huelle">
+    <a class="marke" href="../../index.html"><img src="../../assets/bilder/zeichen.png" alt="" width="34" height="34"><span>threedelex</span></a>
+    <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../../index.html">Start</a></li><li><a href="../../projekte/index.html" aria-current="page">Projekte</a></li><li><a href="../../werkzeuge/index.html">Werkzeuge</a></li></ul></nav>
+  </div>
+</header>
+<div class="seitenkopf"><div class="huelle"><a class="zurueck" href="../../projekte/index.html">← Alle Projekte</a><span class="marker arbeit">In Arbeit</span><h1>Briefbox</h1><p>Briefständer für den Schreibtisch mit vier gestuften Fächern.</p></div></div>
+<main class="huelle">
+<nav class="vorzeige weg einblenden" aria-label="Der Weg dieses Teils">
+  <span class="weg-etikett">Der Weg dieses Teils</span>
+  <h3>Von der losen Post zur fertigen Box</h3>
+  <p>Gedruckt ist sie, Video und Druckdatei kommen noch. Tippe auf einen Schritt, um dorthin zu springen.</p>
+  <ol class="kette"><li class="s-fertig"><a class="schritt-inhalt" href="#problem" data-sprung><b>Idee</b><span>vier gestufte Fächer, Etikettfelder</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#3d-modell" data-sprung><b>CAD</b><span>SolidCraft, 170 × 102 × 90 mm</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#analysen" data-sprung><b>Slicen</b><span>Snapmaker U1, ABS, ohne Stützen</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#zeitraffer" data-sprung><b>Druck</b><span>Zeitraffer aus Home Assistant</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#vorher-nachher" data-sprung><b>Vorher / Nachher</b><span>leeres Bett, fertige Box</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-offen"><div class="schritt-inhalt"><b>Video</b><span>Short zur Briefbox</span><em>kommt noch</em></div></li><li class="s-offen"><div class="schritt-inhalt"><b>MakerWorld</b><span>Druckdatei</span><em>kommt noch</em></div></li></ol>
+</nav><div class="zweispaltig" style="margin-top:28px">
+  <div class="einblenden"><div class="slider galerie-slider" data-autoplay="4500" aria-roledescription="Karussell" aria-label="Bilder">
+<div class="slider-spur">
+<img src="../../assets/bilder/briefbox.webp" alt="CAD-Ansicht: Briefbox mit vier gestuften Fächern" width="1200" height="900">
+</div>
+<div class="slider-steuer"><div class="punkte"></div>
+<div class="pfeile"><button type="button" data-zurueck aria-label="Zurück">←</button><button type="button" data-vor aria-label="Weiter">→</button></div></div>
+</div></div>
+  <div>
+    <div class="kasten einblenden" id="problem">
+      <h3>Problem</h3>
+      <p>Die Post liegt lose herum, und man sieht nicht, was schon erledigt ist.</p>
+      <h3>Lösung</h3>
+      <ul class="liste">
+        <li>Vier gestufte Fächer für Briefe in DIN lang und C5</li>
+        <li>Gerundete Griffmulden in den Zwischenwänden</li>
+        <li>Vier vertiefte Etikettfelder an der Seite</li>
+        <li>Ein Teil, 170 × 102 × 90 mm, ohne Stützen</li>
+      </ul>
+      <div class="stufen" aria-label="Fortschritt"><span class="stufe fertig"><i></i>Konstruktion</span><span class="stufe fertig"><i></i>Druck</span><span class="stufe laeuft"><i></i>Video</span><span class="stufe "><i></i>MakerWorld</span></div>
+    </div>
+    <div class="kasten einblenden" id="druck">
+      <h3>Erster Druck</h3>
+      <p>Snapmaker U1, ABS, 0,2 mm, 3 Wände, Brim 8 mm: ca. 2 h 35 min und 83 g laut Druckdatei.</p>
+      <p class="quelle">Noch offen: beschriften, im Einsatz filmen, Short. Danach gibt es die Druckdatei.</p>
+    </div>
+  </div>
+</div>
+<section class="abschnitt" id="zeitraffer">
+  <span class="etikett einblenden">Zeitraffer</span>
+  <h2 class="einblenden">Der echte <em>Druck</em></h2>
+  <p class="unter einblenden">Home-Assistant-Zeitraffer vom Snapmaker U1. Mitten im Druck war das schwarze ABS leer, weiter ging es in Gelb.</p>
+  <div class="zr-video einblenden">
+  <video src="../../assets/video/briefbox_zeitraffer.mp4" poster="../../assets/bilder/briefbox_zeitraffer_start.webp" muted loop playsinline preload="none" controls width="960" height="540"
+    aria-label="Zeitraffer: Briefbox wird auf dem Snapmaker U1 gedruckt"></video>
+  <span class="zr-anzeige">Zeitraffer</span>
+</div>
+</section>
+<section class="abschnitt" id="vorher-nachher">
+  <span class="etikett einblenden">Vorher / Nachher</span>
+  <h2 class="einblenden">Leeres Bett, <em>fertige Box</em></h2>
+  <p class="unter einblenden">Gleiche Druckerkamera, erstes und letztes Bild des Zeitraffers.</p>
+  <div class="vergleich einblenden">
+  <img src="../../assets/bilder/briefbox_zeitraffer_start.webp" alt="Druckbett vor dem Druck" loading="lazy">
+  <div class="nachher"><img src="../../assets/bilder/briefbox_zeitraffer_ende.webp" alt="fertig gedruckte Briefbox" loading="lazy"></div>
+  <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">vorher</span><span class="etikett-v r">nachher</span>
+  <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben: vorher oder nachher"><span class="fokus"></span>
+</div>
+</section>
+<section class="abschnitt" id="3d-modell">
+  <span class="etikett einblenden">3D-Modell</span>
+  <h2 class="einblenden">In 3D <em>drehen</em></h2>
+  <p class="unter einblenden">Ziehen zum Drehen, zwei Finger oder Mausrad zum Zoomen.</p>
+  <div class="modell3d wartet einblenden" id="m3d-briefbox" data-lib="../../assets/js/lib/" data-stl="../../assets/modelle/briefbox.stl" data-farbe="#ec6a2c" role="region" aria-label="3D-Modell: Briefbox">
+  <img class="vorschau" src="../../assets/bilder/briefbox.webp" alt="Briefbox" loading="lazy">
+  <button type="button" class="start3d"><span>⟲ In 3D drehen</span></button>
+  <span class="status">echtes Modell aus der Konstruktion · lädt erst beim Antippen</span>
+  <div class="werkzeug3d" hidden><button type="button" data-drehen aria-label="Automatisch drehen an oder aus">⟳</button><button type="button" data-zurueck3d aria-label="Ansicht zurücksetzen">⌂</button></div>
+</div>
+</section>
+<section class="abschnitt" id="analysen">
+  <span class="etikett einblenden">Analysen</span>
+  <h2 class="einblenden">Druckbahnen <em>Schicht für Schicht</em></h2>
+  
+  <div class="analysen einblenden"><div class="kasten analyse"><div class="kopfzeile"><span class="symbol" aria-hidden="true">▤</span><h3>Slice-Ansicht Briefbox</h3></div>
+  <p>Alle Druckbahnen aus der echten Druckdatei, farbig nach Art. Mit dem Schichtregler sieht man, wie das Teil Schicht für Schicht entsteht. 450 Schichten, 83 g laut Druckdatei.</p><div class="zeile"><button type="button" class="knopf klein" data-analyse="analyse/slice.html" data-ziel="analyse-briefbox" data-titel="Slice-Ansicht Briefbox">Öffnen <span class="pfeil">→</span></button><span class="groesse">ca. 0,7 MB</span></div></div></div><div id="analyse-briefbox"></div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="huelle">
+    <div>
+      <p class="ki">Konstruktion und Animation mit KI-Hilfe</p>
+      <p>threedelex ist ein Hobbyprojekt: kein Shop, keine Werbung, kein Tracking, keine Cookies.</p>
+    </div>
+    <nav aria-label="Rechtliches"><a href="../../impressum/index.html">Impressum</a><a href="../../datenschutz/index.html">Datenschutz</a></nav>
+  </div>
+</footer>
+<script src="../../assets/js/shorts.js" defer></script>
+<script src="../../assets/js/effekte.js" defer></script>
+</body>
+</html>

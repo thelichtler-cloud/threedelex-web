@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamerahalter · threedelex</title>
+<meta name="description" content="Kamerahalter für die Druckerhaube (in Arbeit).">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0f1a2b">
+<link rel="icon" href="../../assets/bilder/zeichen.png">
+<link rel="stylesheet" href="../../assets/css/stil.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<header class="kopf">
+  <div class="huelle">
+    <a class="marke" href="../../index.html"><img src="../../assets/bilder/zeichen.png" alt="" width="34" height="34"><span>threedelex</span></a>
+    <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../../index.html">Start</a></li><li><a href="../../projekte/index.html" aria-current="page">Projekte</a></li><li><a href="../../werkzeuge/index.html">Werkzeuge</a></li></ul></nav>
+  </div>
+</header>
+<div class="seitenkopf"><div class="huelle"><a class="zurueck" href="../../projekte/index.html">← Alle Projekte</a><span class="marker arbeit">In Arbeit</span><h1>Kamerahalter für die Druckerhaube</h1><p>Damit der Zeitraffer vom Snapmaker U1 klar wird.</p></div></div>
+<main class="huelle">
+<nav class="vorzeige weg einblenden" aria-label="Der Weg dieses Teils">
+  <span class="weg-etikett">Der Weg dieses Teils</span>
+  <h3>Drei Versionen bis zum klaren Bild</h3>
+  <p>Version 3 ist gedruckt und wird montiert. Tippe auf einen Schritt, um dorthin zu springen.</p>
+  <ol class="kette"><li class="s-fertig"><a class="schritt-inhalt" href="#problem" data-sprung><b>Problem</b><span>Bild trüb und abgeschnitten</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#vorher-nachher" data-sprung><b>Versionen</b><span>Version 1 bis 3 im Vergleich</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#3d-modell" data-sprung><b>CAD</b><span>Hülse 30°, Sichtkegel, kleiner Fuß</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#analysen" data-sprung><b>Slicen</b><span>A1 mini, PETG, Baumstützen</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-laeuft"><a class="schritt-inhalt" href="#stand" data-sprung><b>Montage</b><span>Zeitraffer vorher und nachher</span><em class="laeuft">läuft</em><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-offen"><div class="schritt-inhalt"><b>Video</b><span>Short zum Halter</span><em>kommt noch</em></div></li></ol>
+</nav><div class="zweispaltig" style="margin-top:28px">
+  <div class="einblenden"><div class="slider galerie-slider" data-autoplay="4500" aria-roledescription="Karussell" aria-label="Bilder">
+<div class="slider-spur">
+<img src="../../assets/bilder/blink_halter.webp" alt="CAD-Ansicht: Kamerahalter, Version 3" width="1200" height="900">
+</div>
+<div class="slider-steuer"><div class="punkte"></div>
+<div class="pfeile"><button type="button" data-zurueck aria-label="Zurück">←</button><button type="button" data-vor aria-label="Weiter">→</button></div></div>
+</div></div>
+  <div>
+    <div class="kasten einblenden" id="problem">
+      <h3>Problem</h3>
+      <p>Die kleine Kamera auf der Druckerhaube schaute durch die Kunststoffwand. Das Bild war trüb und am Rand abgeschnitten.</p>
+      <h3>Lösung</h3>
+      <ul class="liste">
+        <li>Hülse hält die Kamera um 30° geneigt über dem Druckbett</li>
+        <li>Ausschnitt in der Haube mit Sichtkegel, damit nichts das Bild abschneidet</li>
+        <li>Kleiner Fuß, der vor den Rippen der Haube Platz findet, mit zwei M3-Schrauben und Gegenplatte</li>
+      </ul>
+      <div class="stufen" aria-label="Fortschritt"><span class="stufe fertig"><i></i>Konstruktion</span><span class="stufe laeuft"><i></i>Druck</span><span class="stufe "><i></i>Video</span><span class="stufe "><i></i>MakerWorld</span></div>
+    </div>
+    <div class="kasten einblenden" id="stand">
+      <h3>Stand</h3>
+      <p>Version 3 nach zwei Testdrucken: Die erste schnitt das Bild rund ab, die zweite war zu groß für die Haube.</p>
+      <p class="quelle">Noch offen: montieren, Zeitraffer vorher und nachher vergleichen, Short.</p>
+    </div>
+  </div>
+</div>
+<section class="abschnitt" id="vorher-nachher">
+  <span class="etikett einblenden">Vorher / Nachher</span>
+  <h2 class="einblenden">Version 1 und <em>Version 3</em></h2>
+  <p class="unter einblenden">Version 1 schnitt das Bild rund ab. Version 3 hat einen Sichtkegel und einen kleineren Fuß.</p>
+  <div class="vergleich einblenden">
+  <img src="../../assets/bilder/vergleich_halter_v1.webp" alt="CAD: Kamerahalter Version 1" loading="lazy">
+  <div class="nachher"><img src="../../assets/bilder/vergleich_halter_v3.webp" alt="CAD: Kamerahalter Version 3" loading="lazy"></div>
+  <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Version 1</span><span class="etikett-v r">Version 3</span>
+  <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben: Version 1 oder Version 3"><span class="fokus"></span>
+</div>
+</section>
+<section class="abschnitt" id="3d-modell">
+  <span class="etikett einblenden">3D-Modell</span>
+  <h2 class="einblenden">In 3D <em>drehen</em></h2>
+  <p class="unter einblenden">Ziehen zum Drehen, zwei Finger oder Mausrad zum Zoomen.</p>
+  <div class="modell3d wartet einblenden" id="m3d-halter" data-lib="../../assets/js/lib/" data-stl="../../assets/modelle/kamerahalter_v3.stl" data-farbe="#e3c235" role="region" aria-label="3D-Modell: Kamerahalter Version 3">
+  <img class="vorschau" src="../../assets/bilder/blink_halter.webp" alt="Kamerahalter Version 3" loading="lazy">
+  <button type="button" class="start3d"><span>⟲ In 3D drehen</span></button>
+  <span class="status">echtes Modell aus der Konstruktion · lädt erst beim Antippen</span>
+  <div class="werkzeug3d" hidden><button type="button" data-drehen aria-label="Automatisch drehen an oder aus">⟳</button><button type="button" data-zurueck3d aria-label="Ansicht zurücksetzen">⌂</button></div>
+</div>
+</section>
+<section class="abschnitt" id="analysen">
+  <span class="etikett einblenden">Analysen</span>
+  <h2 class="einblenden">Druckbahnen <em>Schicht für Schicht</em></h2>
+  
+  <div class="analysen einblenden"><div class="kasten analyse"><div class="kopfzeile"><span class="symbol" aria-hidden="true">▤</span><h3>Slice-Ansicht Version 3 + Schablone</h3></div>
+  <p>Alle Druckbahnen aus der echten Druckdatei, farbig nach Art. Mit dem Schichtregler sieht man, wie das Teil Schicht für Schicht entsteht. Baumstützen nur im Sichtkegel, 337 Schichten, 47 g laut Druckdatei.</p><div class="zeile"><button type="button" class="knopf klein" data-analyse="analyse/slice.html" data-ziel="analyse-halter" data-titel="Slice-Ansicht Version 3 + Schablone">Öffnen <span class="pfeil">→</span></button><span class="groesse">ca. 2 MB</span></div></div></div><div id="analyse-halter"></div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="huelle">
+    <div>
+      <p class="ki">Konstruktion und Animation mit KI-Hilfe</p>
+      <p>threedelex ist ein Hobbyprojekt: kein Shop, keine Werbung, kein Tracking, keine Cookies.</p>
+    </div>
+    <nav aria-label="Rechtliches"><a href="../../impressum/index.html">Impressum</a><a href="../../datenschutz/index.html">Datenschutz</a></nav>
+  </div>
+</footer>
+<script src="../../assets/js/shorts.js" defer></script>
+<script src="../../assets/js/effekte.js" defer></script>
+</body>
+</html>

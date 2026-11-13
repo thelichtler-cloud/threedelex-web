@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kühlschrankbox · threedelex</title>
+<meta name="description" content="Ausziehbarer Rahmen fürs Kühlschrank-Türfach, mit FieldCraft gerechnet (in Arbeit).">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0f1a2b">
+<link rel="icon" href="../../assets/bilder/zeichen.png">
+<link rel="stylesheet" href="../../assets/css/stil.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<header class="kopf">
+  <div class="huelle">
+    <a class="marke" href="../../index.html"><img src="../../assets/bilder/zeichen.png" alt="" width="34" height="34"><span>threedelex</span></a>
+    <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../../index.html">Start</a></li><li><a href="../../projekte/index.html" aria-current="page">Projekte</a></li><li><a href="../../werkzeuge/index.html">Werkzeuge</a></li></ul></nav>
+  </div>
+</header>
+<div class="seitenkopf"><div class="huelle"><a class="zurueck" href="../../projekte/index.html">← Alle Projekte</a><span class="marker arbeit">In Arbeit</span> <span class="marker top-marker">★ Vorzeigeprojekt</span><h1>Kühlschrankbox</h1><p>Ausziehbarer Rahmen fürs Türfach. Das Projekt mit dem größten Funktionsumfang: alles, was unsere 3D- und Home-Assistant-Werkstatt kann, in einem Teil.</p></div></div>
+<main class="huelle">
+<nav class="vorzeige weg einblenden" aria-label="Der Weg dieses Teils">
+  <span class="top-abzeichen">★ Vorzeigeprojekt</span>
+  <h3>Der ganze Weg in einem Teil</h3>
+  <p>Kein anderes Projekt nutzt so viel aus unserer Werkstatt: von der ersten Messung bis zum Steiftest im Kühlschrank. Tippe auf einen Schritt, um dorthin zu springen.</p>
+  <ol class="kette"><li class="s-fertig"><a class="schritt-inhalt" href="#entwicklung" data-sprung><b>Messen</b><span>Testclips für das Hakenmaß</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#3d-modell" data-sprung><b>CAD</b><span>parametrisch in SolidCraft, Baugruppe mit Auszug</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#fieldcraft" data-sprung><b>Simulation</b><span>FieldCraft: Ziehen, Tür, Klickkraft, 6 °C</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#analysen" data-sprung><b>Slicen</b><span>A1 mini, PETG, 3D-Vorschau mit Schichtregler</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-fertig"><a class="schritt-inhalt" href="#analysen" data-sprung><b>Home Assistant</b><span>Druckablage, Start am Drucker</span><i class="marke" aria-hidden="true">↓</i></a></li><li class="s-laeuft"><a class="schritt-inhalt" href="#entwicklung" data-sprung><b>Testen</b><span>Steiftests 1 bis 3, gerechnet gegen gedruckt</span><em class="laeuft">läuft</em><i class="marke" aria-hidden="true">↓</i></a></li></ol>
+</nav><div class="zweispaltig" style="margin-top:22px">
+  <div class="einblenden"><div class="slider galerie-slider" data-autoplay="4500" aria-roledescription="Karussell" aria-label="Bilder">
+<div class="slider-spur">
+<img src="../../assets/bilder/kuehlbox_karte.webp" alt="Render: Rahmen A der Kühlschrankbox" width="1200" height="900">
+<img src="../../assets/bilder/kuehlbox/st3_k_u.webp" alt="FieldCraft: Verformung beim Klicken, Steiftest 3" width="1200" height="900" loading="lazy">
+</div>
+<div class="slider-steuer"><div class="punkte"></div>
+<div class="pfeile"><button type="button" data-zurueck aria-label="Zurück">←</button><button type="button" data-vor aria-label="Weiter">→</button></div></div>
+</div></div>
+  <div>
+    <div class="kasten einblenden" id="idee">
+      <h3>Idee</h3>
+      <p>Ein ausziehbarer Rahmen fürs Türfach, ohne Boden: Die Sachen stehen auf dem Fachboden, der Rahmen hält sie nur zusammen.</p>
+      <ul class="liste">
+        <li><strong>Rahmen A</strong> hängt mit einer Lasche an der Fachkante</li>
+        <li><strong>Auszug B</strong> rastet in 6 Stufen à 8 mm (ca. 6,3 bis 10,3 cm)</li>
+        <li>Breite, Höhe und Rasterung als Parameter im CAD (SolidCraft)</li>
+        <li>Erst gerechnet (FieldCraft), dann gedruckt</li>
+      </ul>
+      <div class="stufen" aria-label="Fortschritt"><span class="stufe fertig"><i></i>Konstruktion</span><span class="stufe laeuft"><i></i>Druck</span><span class="stufe "><i></i>Video</span><span class="stufe "><i></i>MakerWorld</span></div>
+    </div>
+    <div class="kasten einblenden" id="entwicklung">
+      <h3>Entwicklung</h3>
+      <ol class="verlauf">
+        <li><b>Testclips</b><span>Hakenmaß gefunden: Laschenspalt 15 mm, Außenhaken 20 mm, Nase 13 mm.</span></li>
+        <li><b>Erster Rahmensatz</b><span>Zu viel Spiel, fiel beim Antippen auseinander. FieldCraft: nur 3 N Klickkraft.</span></li>
+        <li><b>Steiftest 1</b><span>3-mm-Wände, Eck-Dreiecke, Rautenlöcher. Steifer, aber B fiel noch heraus.</span></li>
+        <li><b>Steiftest 2</b><span>Führungsleiste oben, Nocke greift 2 mm: 25 N Klickkraft.</span></li>
+        <li class="aktuell"><b>Steiftest 3</b><span>Nocke greift 2,5 mm, Einführschräge an B: 41 N, mit Vorspannung ca. 46 N. Im Test.</span></li>
+      </ol>
+    </div>
+  </div>
+</div>
+<section class="abschnitt" id="fieldcraft">
+  <span class="etikett einblenden">FieldCraft</span>
+  <h2 class="einblenden">Erst gerechnet, <em>dann gedruckt</em></h2>
+  <p class="unter einblenden">Simulation mit FieldCraft: PETG, linear-statisch. Jeder Stand hat dieselbe Kamera, Farbskala und Überhöhung, also einfach überblenden.</p>
+  <div class="kasten einblenden"><div class="tabelle-huelle"><table class="fea-tabelle"><thead><tr><th>Test</th><th>Erster Rahmen</th><th>Steiftest 2</th><th>Steiftest 3 ohne Vorspannung</th><th>Steiftest 3 mit Vorspannung</th></tr></thead><tbody><tr><th>Ziehen 10 N: größte Spannung</th><td>20,4 MPa</td><td>12,7 MPa</td><td>12,7 MPa</td><td>12,7 MPa</td></tr><tr><th>Ziehen 10 N: Verbiegung von A</th><td>4,75 mm</td><td>1,78 mm</td><td>1,78 mm</td><td>1,78 mm</td></tr><tr><th>Tür 49 N: Verformung</th><td>0,16 mm</td><td>0,04 mm</td><td>0,04 mm</td><td>0,04 mm</td></tr><tr><th>Klickkraft, 4 Nocken</th><td>3 N</td><td>25 N</td><td>41 N</td><td>46 N</td></tr><tr><th>Beim Klicken weicht B / A aus</th><td>–</td><td>1,42 / 0,58 mm</td><td>1,78 / 0,72 mm</td><td>2,0 / 0,8 mm</td></tr><tr><th>Spannung beim Klicken</th><td>–</td><td>9,9 MPa</td><td>10,6 MPa</td><td>ca. 12 MPa</td></tr><tr><th>B drückt dauerhaft nach außen, je Seite</th><td>–</td><td>–</td><td>–</td><td>ca. 1,1 N</td></tr><tr><th>Bei 6 °C im Kühlschrank</th><td>–</td><td>ca. +8 %</td><td>ca. +8 %</td><td>ca. +8 %</td></tr></tbody></table></div><p class="quelle" style="margin-top:10px">Rahmen A ist im Steiftest 3 unverändert gegenüber Steiftest 2, die Tests Ziehen und Tür gelten deshalb direkt. Das Klicken ist für Steiftest 3 neu gerechnet (Nocke greift 2,5 mm, B 0,3 mm niedriger). Die Vorspannung des zweiten B (vorne je Seite 0,5 mm breiter, an den Nocken davon 0,35 mm wirksam) ist aus der gerechneten Steifigkeit von A und B abgeleitet. PETG gedruckt, linear-statisch, Reibwert 0,3 angenommen. Unten jeweils zwei Stände zum Überblenden, mit gleicher Kamera, Farbskala und Überhöhung.</p></div><div class="fea-raster" style="margin-top:16px"><div class="kasten fea einblenden">
+  <h3>Klicken: Verformung (5× überhöht)</h3><div class="vergleich-wahl" data-fuer="fea-0">Links <select data-seite="l" aria-label="Stand links"><option value="0" selected>Erster Rahmen</option><option value="1">Steiftest 2</option><option value="2">Steiftest 3</option></select> Rechts <select data-seite="r" aria-label="Stand rechts"><option value="0">Erster Rahmen</option><option value="1">Steiftest 2</option><option value="2" selected>Steiftest 3</option></select></div>
+  <div class="vergleich" id="fea-0" data-stufen='[["Erster Rahmen", "../../assets/bilder/kuehlbox/r1_k_u.webp"], ["Steiftest 2", "../../assets/bilder/kuehlbox/st2_k_u.webp"], ["Steiftest 3", "../../assets/bilder/kuehlbox/st3_k_u.webp"]]'>
+    <img src="../../assets/bilder/kuehlbox/r1_k_u.webp" alt="Erster Rahmen" loading="lazy" width="1100" height="733">
+    <div class="nachher"><img src="../../assets/bilder/kuehlbox/st3_k_u.webp" alt="Steiftest 3" loading="lazy"></div>
+    <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Erster Rahmen</span><span class="etikett-v r">Steiftest 3</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben"><span class="fokus"></span>
+  </div><div class="skala"><span>0</span><i></i><span>2,0 mm</span></div>
+  <p>Wie weit A und B beim Klicken nachgeben, jeweils beim vollen Eingriff der Nocke (1 mm, 2 mm, 2,5 mm). Oben wählst du, welche Stände du vergleichst.</p>
+</div><div class="kasten fea einblenden">
+  <h3>Klicken: von oben</h3><div class="vergleich-wahl" data-fuer="fea-1">Links <select data-seite="l" aria-label="Stand links"><option value="0" selected>Erster Rahmen</option><option value="1">Steiftest 2</option><option value="2">Steiftest 3</option></select> Rechts <select data-seite="r" aria-label="Stand rechts"><option value="0">Erster Rahmen</option><option value="1">Steiftest 2</option><option value="2" selected>Steiftest 3</option></select></div>
+  <div class="vergleich" id="fea-1" data-stufen='[["Erster Rahmen", "../../assets/bilder/kuehlbox/r1_k_oben.webp"], ["Steiftest 2", "../../assets/bilder/kuehlbox/st2_k_oben.webp"], ["Steiftest 3", "../../assets/bilder/kuehlbox/st3_k_oben.webp"]]'>
+    <img src="../../assets/bilder/kuehlbox/r1_k_oben.webp" alt="Erster Rahmen" loading="lazy" width="1100" height="733">
+    <div class="nachher"><img src="../../assets/bilder/kuehlbox/st3_k_oben.webp" alt="Steiftest 3" loading="lazy"></div>
+    <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Erster Rahmen</span><span class="etikett-v r">Steiftest 3</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben"><span class="fokus"></span>
+  </div><div class="skala"><span>0</span><i></i><span>2,0 mm</span></div>
+  <p>Links Rahmen A, rechts Auszug B. Beim ersten Rahmen gibt fast nichts nach, deshalb fiel er beim Antippen ab.</p>
+</div><div class="kasten fea einblenden">
+  <h3>Klicken: Spannung</h3><div class="vergleich-wahl" data-fuer="fea-2">Links <select data-seite="l" aria-label="Stand links"><option value="0" selected>Erster Rahmen</option><option value="1">Steiftest 2</option><option value="2">Steiftest 3</option></select> Rechts <select data-seite="r" aria-label="Stand rechts"><option value="0">Erster Rahmen</option><option value="1">Steiftest 2</option><option value="2" selected>Steiftest 3</option></select></div>
+  <div class="vergleich" id="fea-2" data-stufen='[["Erster Rahmen", "../../assets/bilder/kuehlbox/r1_k_vm.webp"], ["Steiftest 2", "../../assets/bilder/kuehlbox/st2_k_vm.webp"], ["Steiftest 3", "../../assets/bilder/kuehlbox/st3_k_vm.webp"]]'>
+    <img src="../../assets/bilder/kuehlbox/r1_k_vm.webp" alt="Erster Rahmen" loading="lazy" width="1100" height="733">
+    <div class="nachher"><img src="../../assets/bilder/kuehlbox/st3_k_vm.webp" alt="Steiftest 3" loading="lazy"></div>
+    <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Erster Rahmen</span><span class="etikett-v r">Steiftest 3</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben"><span class="fokus"></span>
+  </div><div class="skala"><span>0</span><i></i><span>12 MPa</span></div>
+  <p>Wie stark das Material beim Klicken belastet wird. PETG hält etwa 50 MPa.</p>
+</div><div class="kasten fea einblenden">
+  <h3>Ziehen 10 N: Verformung (5× überhöht)</h3>
+  <div class="vergleich" id="fea-3" data-stufen='[["Erster Rahmen", "../../assets/bilder/kuehlbox/r1_t1_u.webp"], ["Steiftest 2 und 3", "../../assets/bilder/kuehlbox/st2_t1_u.webp"]]'>
+    <img src="../../assets/bilder/kuehlbox/r1_t1_u.webp" alt="Erster Rahmen" loading="lazy" width="1100" height="733">
+    <div class="nachher"><img src="../../assets/bilder/kuehlbox/st2_t1_u.webp" alt="Steiftest 2 und 3" loading="lazy"></div>
+    <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Erster Rahmen</span><span class="etikett-v r">Steiftest 2 und 3</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben"><span class="fokus"></span>
+  </div><div class="skala"><span>0</span><i></i><span>4,75 mm</span></div>
+  <p>Rahmen A mit 2-mm-Wänden gegen 3-mm-Wände mit Eck-Dreiecken.</p>
+</div><div class="kasten fea einblenden">
+  <h3>Ziehen 10 N: Spannung</h3>
+  <div class="vergleich" id="fea-4" data-stufen='[["Erster Rahmen", "../../assets/bilder/kuehlbox/r1_t1_vm.webp"], ["Steiftest 2 und 3", "../../assets/bilder/kuehlbox/st2_t1_vm.webp"]]'>
+    <img src="../../assets/bilder/kuehlbox/r1_t1_vm.webp" alt="Erster Rahmen" loading="lazy" width="1100" height="733">
+    <div class="nachher"><img src="../../assets/bilder/kuehlbox/st2_t1_vm.webp" alt="Steiftest 2 und 3" loading="lazy"></div>
+    <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Erster Rahmen</span><span class="etikett-v r">Steiftest 2 und 3</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben"><span class="fokus"></span>
+  </div><div class="skala"><span>0</span><i></i><span>20,4 MPa</span></div>
+  <p>Die Spannung an der Lasche sinkt von 20,4 auf 12,7 MPa.</p>
+</div><div class="kasten fea einblenden">
+  <h3>Tür knallt zu: Verformung (50× überhöht)</h3>
+  <div class="vergleich" id="fea-5" data-stufen='[["Erster Rahmen", "../../assets/bilder/kuehlbox/r1_t2_u.webp"], ["Steiftest 2 und 3", "../../assets/bilder/kuehlbox/st2_t2_u.webp"]]'>
+    <img src="../../assets/bilder/kuehlbox/r1_t2_u.webp" alt="Erster Rahmen" loading="lazy" width="1100" height="733">
+    <div class="nachher"><img src="../../assets/bilder/kuehlbox/st2_t2_u.webp" alt="Steiftest 2 und 3" loading="lazy"></div>
+    <span class="linie"></span><span class="griff">‹ ›</span><span class="etikett-v l">Erster Rahmen</span><span class="etikett-v r">Steiftest 2 und 3</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Vergleich verschieben"><span class="fokus"></span>
+  </div><div class="skala"><span>0</span><i></i><span>0,16 mm</span></div>
+  <p>0,16 mm gegen 0,04 mm.</p>
+</div></div>
+</section>
+<section class="abschnitt" id="3d-modell">
+  <span class="etikett einblenden">3D-Modell</span>
+  <h2 class="einblenden">In 3D <em>drehen</em></h2>
+  <p class="unter einblenden">Ziehen zum Drehen, zwei Finger oder Mausrad zum Zoomen.</p>
+  <div class="modell3d wartet einblenden" id="m3d-kuehlbox" data-lib="../../assets/js/lib/" data-stl="../../assets/modelle/kuehlbox_rahmen_a.stl" data-farbe="#5cb89e" role="region" aria-label="3D-Modell: Kühlschrankbox">
+  <img class="vorschau" src="../../assets/bilder/kuehlbox_karte.webp" alt="Kühlschrankbox" loading="lazy">
+  <button type="button" class="start3d"><span>⟲ In 3D drehen</span></button>
+  <span class="status">echtes Modell aus der Konstruktion · lädt erst beim Antippen</span>
+  <div class="werkzeug3d" hidden><button type="button" data-drehen aria-label="Automatisch drehen an oder aus">⟳</button><button type="button" data-zurueck3d aria-label="Ansicht zurücksetzen">⌂</button></div>
+</div><div class="modell-wahl" data-fuer="m3d-kuehlbox"><button type="button" data-stl="../../assets/modelle/kuehlbox_rahmen_a.stl" aria-pressed="true">Rahmen A</button><button type="button" data-stl="../../assets/modelle/kuehlbox_auszug_b.stl" aria-pressed="false">Auszug B</button></div>
+</section>
+<section class="abschnitt" id="analysen">
+  <span class="etikett einblenden">Analysen</span>
+  <h2 class="einblenden">Druckbahnen <em>Schicht für Schicht</em></h2>
+  
+  <div class="analysen einblenden"><div class="kasten analyse"><div class="kopfzeile"><span class="symbol" aria-hidden="true">▤</span><h3>Slice-Ansicht Steiftest 3</h3></div>
+  <p>Alle Druckbahnen aus der echten Druckdatei, farbig nach Art. Mit dem Schichtregler sieht man, wie das Teil Schicht für Schicht entsteht. Rahmen A und zweimal Auszug B, 225 Schichten, 2 h 35 min laut Druckdatei.</p><div class="zeile"><button type="button" class="knopf klein" data-analyse="analyse/slice.html" data-ziel="analyse-kuehlbox" data-titel="Slice-Ansicht Steiftest 3">Öffnen <span class="pfeil">→</span></button><span class="groesse">ca. 1,5 MB</span></div></div></div><div id="analyse-kuehlbox"></div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="huelle">
+    <div>
+      <p class="ki">Konstruktion und Animation mit KI-Hilfe</p>
+      <p>threedelex ist ein Hobbyprojekt: kein Shop, keine Werbung, kein Tracking, keine Cookies.</p>
+    </div>
+    <nav aria-label="Rechtliches"><a href="../../impressum/index.html">Impressum</a><a href="../../datenschutz/index.html">Datenschutz</a></nav>
+  </div>
+</footer>
+<script src="../../assets/js/shorts.js" defer></script>
+<script src="../../assets/js/effekte.js" defer></script>
+</body>
+</html>
