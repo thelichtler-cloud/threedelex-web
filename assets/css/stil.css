@@ -159,13 +159,24 @@ h3 { font-size: 1.12rem; margin: 0 0 4px; }
 .short figcaption { padding: 10px 2px 0; font-size: .95rem; }
 .short figcaption small { display: block; color: var(--leise); }
 .yt { position: relative; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: #000; box-shadow: var(--schatten); }
-.yt button, .yt a.yt-link { all: unset; cursor: pointer; position: absolute; inset: 0; display: block; }
+.yt > button.yt-start, .yt a.yt-link { all: unset; cursor: pointer; position: absolute; inset: 0; display: block; }
+.yt .yt-marke { position: absolute; left: 6px; right: 6px; bottom: 6px; padding: 4px 7px; border-radius: 8px; background: rgba(10, 16, 28, .82); color: #fff;
+  font-size: .68rem; line-height: 1.25; text-align: center; }
+.yt .yt-frage { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 12px;
+  background: rgba(10, 16, 28, .97); color: #fff; font-size: .74rem; line-height: 1.38; overflow-y: auto; }
+.yt .yt-frage[hidden] { display: none; }
+.yt .yt-frage p { margin: 0; }
+.yt .yt-frage a { color: #ffb38a; }
+.yt .yt-frage button { all: unset; cursor: pointer; text-align: center; border-radius: 999px; padding: 8px 10px; font-weight: 700; font-size: .8rem; }
+.yt .yt-frage .yt-laden { background: var(--orange); color: #fff; }
+.yt .yt-frage .yt-abbruch { border: 1px solid rgba(255, 255, 255, .45); color: #fff; font-weight: 500; }
+.yt .yt-frage button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 .yt img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .yt:hover img { transform: scale(1.04); }
 .yt .play { position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: rgba(236, 106, 44, .95); box-shadow: 0 2px 14px rgba(0, 0, 0, .4); }
 .yt .play::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(236, 106, 44, .7); animation: ring 2.2s ease-out infinite; }
 .yt .play::after { content: ""; position: absolute; left: 24px; top: 18px; border-style: solid; border-width: 13px 0 13px 21px; border-color: transparent transparent transparent #fff; }
-.yt button:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; }
+.yt > button.yt-start:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; }
 .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .hinweis { font-size: .85rem; color: var(--leise); margin: 12px 0 0; }
 
@@ -440,3 +451,4 @@ body.ebene-offen { overflow: hidden; }
 .kasten.recht h3:first-child, .kasten.recht .quelle + h3 { margin-top: 4px; }
 .kasten.recht p { margin: 4px 0 0; }
 .fehlt { display: inline-block; padding: 1px 8px; border-radius: 6px; background: rgba(236, 106, 44, .16); color: var(--akzent); font-weight: 700; font-size: .92em; }
+.yt:has(.yt-frage:not([hidden])) .yt-marke { visibility: hidden; }
