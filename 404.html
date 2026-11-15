@@ -22,6 +22,8 @@
 <main class="huelle">
 <section class="abschnitt"><p>Diese Adresse gibt es (noch) nicht.</p>
 <div class="knoepfe" style="justify-content:flex-start"><a class="knopf" href="/">Zur Startseite <span class="pfeil">→</span></a></div></section>
+<script>/* Groß-/Kleinschreibung: /Impressum/ -> /impressum/ (Query und Anker bleiben, z. B. ?utm_source=ig). Kein Ordner mit Großbuchstaben nötig, Windows und Git vertragen keine zwei Ordner, die sich nur darin unterscheiden. */
+(function(){var p=location.pathname,l=p.toLowerCase();if(p!==l)location.replace(l+location.search+location.hash);})();</script>
 </main>
 <footer class="fuss">
   <div class="huelle">
