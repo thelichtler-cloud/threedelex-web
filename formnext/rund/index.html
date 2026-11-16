@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fahrt eingelöst! Dein Chip · threedelex</title>
+<meta name="description" content="So entstand dein runder Fahrchip aus dem 3D-Drucker: Ø 38 mm mit NFC-Tag, gedruckt bei threedelex.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0f1a2b">
+<link rel="icon" href="../../assets/bilder/zeichen.png">
+<link rel="stylesheet" href="../../assets/css/stil.css">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+html:not([lang="en"]) span[lang="en"], html[lang="en"] span[lang="de"] { display: none; }
+html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none; }
+.sprache { display: none; align-items: center; gap: 2px; margin-left: 6px; color: #8d9bb0; }
+.js .sprache { display: flex; }
+.sprache button { background: none; border: 0; color: #d6deea; font: inherit; font-size: .9rem; font-weight: 600; padding: 8px 8px; min-width: 40px; min-height: 40px; cursor: pointer; border-radius: 6px; }
+.sprache button:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+.sprache button[aria-pressed="true"] { color: #fff; box-shadow: inset 0 -2px 0 var(--orange); }
+.sprache button:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+.chipbilder { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 14px 0 0; }
+.chipbilder figure { margin: 0; }
+.chipbilder img { display: block; border-radius: 14px; width: 100%; height: auto; background: #eceef2; }
+.chipbilder figcaption { font-size: .85rem; color: var(--leise); margin-top: 6px; }
+.chipzahlen { margin: 16px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: .95rem; }
+.chipzahlen dt { color: var(--leise); } .chipzahlen dd { margin: 0; font-weight: 600; }
+@media (max-width: 480px) { .chipzahlen { grid-template-columns: 1fr; gap: 0; } .chipzahlen dd { margin-bottom: 8px; } }
+.botschaft { text-align: left; }
+.botschaft .knoepfe { justify-content: flex-start; margin-top: 12px; }
+</style>
+<script>
+(function () {
+  var d = document.documentElement, T = ["Fahrt eingelöst! Dein Chip", "Ride redeemed! Your chip"], B = ["So entstand dein runder Fahrchip aus dem 3D-Drucker: Ø 38 mm mit NFC-Tag, gedruckt bei threedelex.", "How your round ride chip was 3D printed: Ø 38 mm with an NFC tag, made at threedelex."], ATT = ["alt", "aria-label", "title"], l = null;
+  try { l = localStorage.getItem("fn-sprache"); } catch (e) {}
+  if (l !== "de" && l !== "en") l = ((navigator.language || "").toLowerCase().indexOf("de") === 0) ? "de" : "en";
+  function setze(sp, merken) {
+    d.lang = sp;
+    var i = sp === "en" ? 1 : 0;
+    document.title = T[i] + " · threedelex";
+    var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", B[i]);
+    ATT.forEach(function (n) {
+      document.querySelectorAll("[data-en-" + n + "]").forEach(function (e) {
+        if (!e.hasAttribute("data-de-" + n)) e.setAttribute("data-de-" + n, e.getAttribute(n) || "");
+        e.setAttribute(n, e.getAttribute("data-" + (sp === "en" ? "en" : "de") + "-" + n));
+      });
+    });
+    document.querySelectorAll("[data-sprache]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sprache") === sp ? "true" : "false"); });
+    if (merken) { try { localStorage.setItem("fn-sprache", sp); } catch (e) {} }
+    try { document.dispatchEvent(new Event("fn-sprache")); } catch (e) {}
+  }
+  d.lang = l;
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-sprache]").forEach(function (b) { b.addEventListener("click", function () { setze(b.getAttribute("data-sprache"), true); }); });
+    setze(l, false);
+  });
+})();
+</script>
+</head>
+<body>
+<header class="kopf">
+  <div class="huelle">
+    <a class="marke" href="../../index.html"><img src="../../assets/bilder/zeichen.png" alt="" width="34" height="34"><span>threedelex</span></a>
+    <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../../index.html"><span lang="de">Start</span><span lang="en">Home</span></a></li><li><a href="../../projekte/index.html"><span lang="de">Projekte</span><span lang="en">Projects</span></a></li><li><a href="../../werkzeuge/index.html"><span lang="de">Werkzeuge</span><span lang="en">Tools</span></a></li><li class="sprache" role="group" aria-label="Sprache / Language"><button type="button" data-sprache="de" lang="de" aria-pressed="true">DE</button><span aria-hidden="true">|</span><button type="button" data-sprache="en" lang="en" aria-pressed="false">EN</button></li></ul></nav>
+  </div>
+</header>
+<div class="seitenkopf fahrschein-kopf"><div class="huelle">
+  <div class="fahrschein" role="img" aria-label="Fahrschein FN26: 1 Fahrt mit threedelex, eingelöst" data-en-aria-label="Ticket FN26: 1 ride with threedelex, redeemed">
+    <span class="fs-oben"><span lang="de">Fahrschein · FN26</span><span lang="en">Ticket · FN26</span></span>
+    <span class="fs-titel"><span lang="de">1 Fahrt mit threedelex</span><span lang="en">1 ride with threedelex</span></span>
+    <span class="fs-unten"><span lang="de">Formnext 2026 · eine Runde</span><span lang="en">Formnext 2026 · one round</span></span>
+    <span class="stempel" aria-hidden="true"><span lang="de">EINGELÖST</span><span lang="en">REDEEMED</span></span>
+  </div>
+  <h1><span lang="de">Fahrt eingelöst!</span><span lang="en">Ride redeemed!</span></h1>
+  <p><span lang="de">Schön, dass wir uns auf der Formnext getroffen haben. Das ist die Geschichte deines Chips:</span><span lang="en">Good to have met you at Formnext. This is the story of your chip:</span></p>
+</div></div>
+<main class="huelle">
+<ol class="fahrt">
+<li class="station" id="entstehung">
+  <span class="nr" aria-hidden="true">1</span>
+  <div class="station-inhalt">
+    <h2 class="einblenden"><span lang="de">So entstand dein Chip</span><span lang="en">How your chip was made</span></h2>
+    <p class="unter einblenden"><span lang="de">Der runde Fahrchip, Ø 38 mm, Vorder- und Rückseite.</span><span lang="en">The round ride chip, Ø 38 mm, front and back.</span></p>
+    <div class="platzhalter einblenden"><span class="marker arbeit"><span lang="de">Kommt in Kürze</span><span lang="en">Coming soon</span></span>
+<p style="margin-top:8px"><span lang="de">Hier kommt der echte Zeitraffer aus der Druckerkamera hin: Schicht für Schicht, bis der NFC-Chip eingelegt und überdruckt wird.</span><span lang="en">The real time-lapse from the printer camera will go here: layer by layer, until the NFC chip is inserted and printed over.</span></p></div>
+    <div class="chipbilder einblenden">
+      <figure><img src="../../assets/bilder/chip_rund_vorne.webp" alt="Runder Fahrchip Ø 38 mm, Vorderseite" data-en-alt="Round ride chip Ø 38 mm, front" width="1200" height="900" loading="lazy"><figcaption><span lang="de">Vorderseite (Modellansicht)</span><span lang="en">Front (model view)</span></figcaption></figure>
+      <figure><img src="../../assets/bilder/chip_rund_hinten.webp" alt="Runder Fahrchip Ø 38 mm, Rückseite" data-en-alt="Round ride chip Ø 38 mm, back" width="1200" height="900" loading="lazy"><figcaption><span lang="de">Rückseite mit Logo</span><span lang="en">Back with logo</span></figcaption></figure>
+    </div>
+    <dl class="chipzahlen einblenden"><dt><span lang="de">Maße</span><span lang="en">Measurements</span></dt><dd><span lang="de">Ø 38 × 2,4 mm</span><span lang="en">Ø 38 × 2.4 mm</span></dd><dt><span lang="de">Material</span><span lang="en">Material</span></dt><dd><span lang="de">ABS, rot und weiß</span><span lang="en">ABS, red and white</span></dd><dt><span lang="de">Druckzeit je Chip</span><span lang="en">Print time per chip</span></dt><dd><span lang="de">ca. 14 min (rechnerisch, Platte: 25 Chips in 5 h 40 min)</span><span lang="en">approx. 14 min (calculated; plate: 25 chips in 5 h 40 min)</span></dd><dt><span lang="de">Filament je Chip</span><span lang="en">Filament per chip</span></dt><dd><span lang="de">ca. 2,1 g rot + 0,3 g weiß (rechnerisch)</span><span lang="en">approx. 2.1 g red + 0.3 g white (calculated)</span></dd><dt><span lang="de">NFC-Tag</span><span lang="en">NFC tag</span></dt><dd><span lang="de">Ø 26,5 × 0,4 mm Tasche, eingelegt und überdruckt</span><span lang="en">Ø 26.5 × 0.4 mm pocket, inserted and printed over</span></dd><dt><span lang="de">Druck</span><span lang="en">Printing</span></dt><dd><span lang="de">Gedruckt auf dem Snapmaker U1 in ABS, 0,2 mm Schichten, eine Pause bei 1,4 mm</span><span lang="en">Printed on the Snapmaker U1 in ABS, 0.2 mm layers, one pause at 1.4 mm</span></dd></dl>
+    <p class="hinweis"><span lang="de">Zeit und Filament je Stück sind aus den Zahlen der Druckdatei einer vollen Platte umgerechnet. Maße aus dem Modell.</span><span lang="en">Time and filament per piece are calculated from the print file figures of a full plate. Measurements from the model.</span></p>
+  </div>
+</li>
+<li class="station botschaft" id="beide">
+  <span class="nr" aria-hidden="true">2</span>
+  <div class="station-inhalt">
+    <h2 class="einblenden"><span lang="de">Hast du beide Chips gesammelt?</span><span lang="en">Did you collect both chips?</span></h2>
+    <p class="unter einblenden"><span lang="de">Es gibt zwei: die eckige Karte und den runden Chip. Wenn du beide hast, freue ich mich über ein Abo und ein Like, das hilft dem Kanal.</span><span lang="en">There are two: the rectangular card and the round chip. If you have both, a subscribe and a like would be much appreciated. It helps the channel.</span></p>
+    <div class="knoepfe einblenden">
+      <a class="knopf" href="https://www.youtube.com/@threedelex?sub_confirmation=1" rel="noopener"><span lang="de">Kanal abonnieren</span><span lang="en">Subscribe to the channel</span> <span class="pfeil">↗</span></a>
+      <a class="knopf zweit" href="../../formnext/eckig/index.html"><span lang="de">Zur eckigen Karte</span><span lang="en">To the rectangular card</span> <span class="pfeil">→</span></a>
+      <a class="knopf zweit" href="../../formnext/index.html"><span lang="de">Zur Übersicht</span><span lang="en">Overview</span> <span class="pfeil">→</span></a>
+    </div>
+  </div>
+</li>
+</ol>
+<section class="abschnitt" id="zum-mitbringsel">
+  <div class="kasten recht mitbringsel">
+    <h3><span lang="de">Zum Mitbringsel</span><span lang="en">About the souvenir</span></h3>
+    <p><span lang="de">Kein Spielzeug. Enthält einen NFC-Chip (Kleinteil). Außer Reichweite von Kindern aufbewahren.<br>Kein echter Fahrchip und kein Gutschein.</span><span lang="en">Not a toy. Contains an embedded NFC tag (small part). Keep out of reach of children.<br>Not a real fairground ride token and not a voucher.</span></p>
+    <p><span lang="de">Hersteller</span><span lang="en">Manufacturer</span>: Alexander Wendt<br><span lang="de">c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Deutschland</span><span lang="en">c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Germany</span><br><span lang="de">E-Mail</span><span lang="en">Email</span>: <a href="mailto:kontakt@threedelex.de">kontakt@threedelex.de</a><br><span lang="de">Charge</span><span lang="en">Batch</span>: FN26</p>
+  </div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="huelle">
+    <div>
+      <p class="ki"><span lang="de">Konstruktion und Animation mit KI-Hilfe</span><span lang="en">Design and animation with AI assistance</span></p>
+      <p><span lang="de">threedelex – 3D-Druck-Projekte und Videos. Kein Tracking, keine Cookies.</span><span lang="en">threedelex – 3D printing projects and videos. No tracking, no cookies. The rest of this site is in German.</span></p>
+    </div>
+    <nav aria-label="Rechtliches"><a href="../../impressum/index.html"><span lang="de">Impressum</span><span lang="en">Legal notice (German)</span></a><a href="../../datenschutz/index.html"><span lang="de">Datenschutz</span><span lang="en">Privacy policy (German)</span></a></nav>
+  </div>
+</footer>
+<script src="../../assets/js/shorts.js" defer></script>
+<script src="../../assets/js/effekte.js" defer></script>
+</body>
+</html>

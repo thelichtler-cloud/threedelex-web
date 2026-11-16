@@ -19,6 +19,15 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
 .sprache button:hover { background: rgba(255, 255, 255, .08); color: #fff; }
 .sprache button[aria-pressed="true"] { color: #fff; box-shadow: inset 0 -2px 0 var(--orange); }
 .sprache button:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+.chipbilder { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 14px 0 0; }
+.chipbilder figure { margin: 0; }
+.chipbilder img { display: block; border-radius: 14px; width: 100%; height: auto; background: #eceef2; }
+.chipbilder figcaption { font-size: .85rem; color: var(--leise); margin-top: 6px; }
+.chipzahlen { margin: 16px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: .95rem; }
+.chipzahlen dt { color: var(--leise); } .chipzahlen dd { margin: 0; font-weight: 600; }
+@media (max-width: 480px) { .chipzahlen { grid-template-columns: 1fr; gap: 0; } .chipzahlen dd { margin-bottom: 8px; } }
+.botschaft { text-align: left; }
+.botschaft .knoepfe { justify-content: flex-start; margin-top: 12px; }
 </style>
 <script>
 (function () {
@@ -123,8 +132,8 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
 <section class="abschnitt" id="zum-mitbringsel">
   <div class="kasten recht mitbringsel">
     <h3><span lang="de">Zum Mitbringsel</span><span lang="en">About the souvenir</span></h3>
-    <p><span lang="de">Kein Spielzeug. Enthält einen NFC-Chip (Kleinteil). Außer Reichweite von Kindern aufbewahren.<br>Kein echter Fahrchip und kein Gutschein.</span><span lang="en">Not a toy. Contains an NFC chip (small part). Keep out of reach of children.<br>Not a real ride chip and not a voucher.</span></p>
-    <p><span lang="de">Hersteller</span><span lang="en">Manufacturer</span>: Alexander Wendt<br>c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Deutschland<br><span lang="de">E-Mail</span><span lang="en">Email</span>: <a href="mailto:kontakt@threedelex.de">kontakt@threedelex.de</a><br><span lang="de">Charge</span><span lang="en">Batch</span>: FN26</p>
+    <p><span lang="de">Kein Spielzeug. Enthält einen NFC-Chip (Kleinteil). Außer Reichweite von Kindern aufbewahren.<br>Kein echter Fahrchip und kein Gutschein.</span><span lang="en">Not a toy. Contains an embedded NFC tag (small part). Keep out of reach of children.<br>Not a real fairground ride token and not a voucher.</span></p>
+    <p><span lang="de">Hersteller</span><span lang="en">Manufacturer</span>: Alexander Wendt<br><span lang="de">c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Deutschland</span><span lang="en">c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Germany</span><br><span lang="de">E-Mail</span><span lang="en">Email</span>: <a href="mailto:kontakt@threedelex.de">kontakt@threedelex.de</a><br><span lang="de">Charge</span><span lang="en">Batch</span>: FN26</p>
   </div>
 </section>
 </main>
