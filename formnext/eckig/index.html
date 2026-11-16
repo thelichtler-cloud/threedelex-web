@@ -28,6 +28,9 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
 @media (max-width: 480px) { .chipzahlen { grid-template-columns: 1fr; gap: 0; } .chipzahlen dd { margin-bottom: 8px; } }
 .botschaft { text-align: left; }
 .botschaft .knoepfe { justify-content: flex-start; margin-top: 12px; }
+.chip-kopf .chip-bild { display: block; height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .35)); margin-bottom: 8px; }
+.chip-kopf .chip-eckig { width: 300px; max-width: 78vw; transform: rotate(-3deg); }
+.chip-kopf .chip-rund { width: 210px; max-width: 56vw; }
 </style>
 <script>
 (function () {
@@ -64,13 +67,16 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
     <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../../index.html"><span lang="de">Start</span><span lang="en">Home</span></a></li><li><a href="../../projekte/index.html"><span lang="de">Projekte</span><span lang="en">Projects</span></a></li><li><a href="../../werkzeuge/index.html"><span lang="de">Werkzeuge</span><span lang="en">Tools</span></a></li><li class="sprache" role="group" aria-label="Sprache / Language"><button type="button" data-sprache="de" lang="de" aria-pressed="true">DE</button><span aria-hidden="true">|</span><button type="button" data-sprache="en" lang="en" aria-pressed="false">EN</button></li></ul></nav>
   </div>
 </header>
-<div class="seitenkopf fahrschein-kopf"><div class="huelle">
-  <div class="fahrschein" role="img" aria-label="Fahrschein FN26: 1 Fahrt mit threedelex, eingelöst" data-en-aria-label="Ticket FN26: 1 ride with threedelex, redeemed">
-    <span class="fs-oben"><span lang="de">Fahrschein · FN26</span><span lang="en">Ticket · FN26</span></span>
-    <span class="fs-titel"><span lang="de">1 Fahrt mit threedelex</span><span lang="en">1 ride with threedelex</span></span>
-    <span class="fs-unten"><span lang="de">Formnext 2026 · eine Runde</span><span lang="en">Formnext 2026 · one round</span></span>
-    <span class="stempel" aria-hidden="true"><span lang="de">EINGELÖST</span><span lang="en">REDEEMED</span></span>
-  </div>
+<div class="seitenkopf fahrschein-kopf chip-kopf"><div class="huelle">
+  <svg class="chip-bild chip-eckig" viewBox="0 0 600 400" role="img" aria-label="Fahrchip, eckige Karte: threedelex, 1 Fahrt, 3D-Druck" data-en-aria-label="Ride chip, rectangular card: threedelex, 1 Fahrt (1 ride), 3D-Druck (3D printing)">
+  <rect x="4" y="4" width="592" height="392" rx="44" fill="#C0262B"/>
+  <rect x="34" y="34" width="532" height="332" rx="6" fill="none" stroke="#F4F1EA" stroke-width="12"/>
+  <g fill="#F4F1EA" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" text-anchor="middle">
+    <text x="300" y="138" font-size="74" textLength="420" lengthAdjust="spacingAndGlyphs">threedelex</text>
+    <text x="300" y="262" font-size="122" textLength="470" lengthAdjust="spacingAndGlyphs">1 FAHRT</text>
+    <text x="300" y="340" font-size="64" textLength="360" lengthAdjust="spacingAndGlyphs">3D-DRUCK</text>
+  </g>
+</svg>
   <h1><span lang="de">Fahrt eingelöst!</span><span lang="en">Ride redeemed!</span></h1>
   <p><span lang="de">Schön, dass wir uns auf der Formnext getroffen haben. Das ist die Geschichte deiner Karte:</span><span lang="en">Good to have met you at Formnext. This is the story of your card:</span></p>
 </div></div>
