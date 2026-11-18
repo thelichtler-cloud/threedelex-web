@@ -208,6 +208,10 @@ td:not([colspan]) { white-space: nowrap; }
 .fuss .ki { font-weight: 700; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
 .fuss .ki::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: puls 2s ease-in-out infinite; }
 .fuss nav a { color: var(--leise); margin-right: 14px; }
+.fuss nav.sozial { display: flex; gap: 16px; align-items: center; }
+.fuss nav.sozial a { margin: 0; display: inline-flex; padding: 6px; border-radius: 8px; transition: transform .15s; }
+.fuss nav.sozial a:hover, .fuss nav.sozial a:focus-visible { transform: translateY(-2px); }
+.fuss nav.sozial svg { display: block; }
 
 /* ================= Effekte ================= */
 @keyframes puls { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .45; transform: scale(.8); } }
