@@ -42,6 +42,13 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
 .version h3 { margin: 0; font-size: 1.25rem; }
 .version .chipzahlen { margin-top: 6px; }
 .version .knoepfe { justify-content: flex-start; margin-top: auto; padding-top: 12px; }
+.chip-hinweis { margin-top: 22px; border-left: 4px solid var(--orange); }
+.beschreib { display: grid; gap: 14px; margin-top: 14px; }
+.beschreib h3 { margin: 0 0 8px; font-size: 1.1rem; }
+.schritte { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.warnung { border-left: 4px solid #d8352a; }
+.warnung p { margin: 0; }
+.fruehere { margin: 14px 0 0; padding-left: 1.2em; color: var(--leise); }
 </style>
 <script>
 (function () {
@@ -92,6 +99,7 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
   <p><span lang="de">Schön, dass wir uns auf der Formnext getroffen haben. Das ist die Geschichte deines Chips:</span><span lang="en">Good to have met you at Formnext. This is the story of your chip:</span></p>
 </div></div>
 <main class="huelle">
+<div class="kasten chip-hinweis einblenden"><b><span lang="de">Neu:</span><span lang="en">New:</span></b> <span lang="de">Was dein Chip noch kann, steht jeden Monat neu auf</span><span lang="en">What else your chip can do – a new ride every month at</span> <a href="../../chip/index.html">threedelex.de/chip</a>.</div>
 <ol class="fahrt">
 <li class="station" id="entstehung">
   <span class="nr" aria-hidden="true">1</span>

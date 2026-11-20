@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dein Fahrchip · threedelex</title>
+<meta name="description" content="Fahrchip aus dem 3D-Drucker von threedelex: mit ungesperrtem NFC-Tag, jeden Monat eine neue Fahrt.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0f1a2b">
+<link rel="icon" href="../assets/bilder/zeichen.png">
+<link rel="stylesheet" href="../assets/css/stil.css">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+html:not([lang="en"]) span[lang="en"], html[lang="en"] span[lang="de"] { display: none; }
+html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none; }
+.sprache { display: none; align-items: center; gap: 2px; margin-left: 6px; color: #8d9bb0; }
+.js .sprache { display: flex; }
+.sprache button { background: none; border: 0; color: #d6deea; font: inherit; font-size: .9rem; font-weight: 600; padding: 8px 8px; min-width: 40px; min-height: 40px; cursor: pointer; border-radius: 6px; }
+.sprache button:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+.sprache button[aria-pressed="true"] { color: #fff; box-shadow: inset 0 -2px 0 var(--orange); }
+.sprache button:focus-visible { outline: 2px solid var(--orange); outline-offset: 1px; }
+.chipbilder { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 14px 0 0; }
+.chipbilder figure { margin: 0; }
+.chipbilder img { display: block; border-radius: 14px; width: 100%; height: auto; background: #eceef2; }
+.chipbilder figcaption { font-size: .85rem; color: var(--leise); margin-top: 6px; }
+.chipzahlen { margin: 16px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: .95rem; }
+.chipzahlen dt { color: var(--leise); } .chipzahlen dd { margin: 0; font-weight: 600; }
+@media (max-width: 480px) { .chipzahlen { grid-template-columns: 1fr; gap: 0; } .chipzahlen dd { margin-bottom: 8px; } }
+.botschaft { text-align: left; }
+.botschaft .knoepfe { justify-content: flex-start; margin-top: 12px; }
+.chip-kopf .chip-bild { display: block; height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .35)); margin-bottom: 8px; }
+.chip-kopf .chip-eckig { width: 300px; max-width: 78vw; transform: rotate(-3deg); }
+.chip-kopf .chip-rund { width: 210px; max-width: 56vw; }
+.chip-paar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+.chip-paar .chip-bild { display: block; height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .35)); }
+.chip-paar .chip-eckig { width: 220px; max-width: 46vw; transform: rotate(-3deg); }
+.chip-paar .chip-rund { width: 150px; max-width: 30vw; }
+.versionen { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 14px; }
+.version { display: flex; flex-direction: column; }
+.version img { display: block; width: 100%; height: auto; background: #eceef2; }
+.version .version-inhalt { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.version h3 { margin: 0; font-size: 1.25rem; }
+.version .chipzahlen { margin-top: 6px; }
+.version .knoepfe { justify-content: flex-start; margin-top: auto; padding-top: 12px; }
+.chip-hinweis { margin-top: 22px; border-left: 4px solid var(--orange); }
+.beschreib { display: grid; gap: 14px; margin-top: 14px; }
+.beschreib h3 { margin: 0 0 8px; font-size: 1.1rem; }
+.schritte { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.warnung { border-left: 4px solid #d8352a; }
+.warnung p { margin: 0; }
+.fruehere { margin: 14px 0 0; padding-left: 1.2em; color: var(--leise); }
+</style>
+<script>
+(function () {
+  var d = document.documentElement, T = ["Dein Fahrchip", "Your ride chip"], B = ["Fahrchip aus dem 3D-Drucker von threedelex: mit ungesperrtem NFC-Tag, jeden Monat eine neue Fahrt.", "A 3D-printed ride chip from threedelex: with an unlocked NFC tag and a new ride every month."], ATT = ["alt", "aria-label", "title"], l = null;
+  try { l = localStorage.getItem("fn-sprache"); } catch (e) {}
+  if (l !== "de" && l !== "en") l = ((navigator.language || "").toLowerCase().indexOf("de") === 0) ? "de" : "en";
+  function setze(sp, merken) {
+    d.lang = sp;
+    var i = sp === "en" ? 1 : 0;
+    document.title = T[i] + " · threedelex";
+    var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", B[i]);
+    ATT.forEach(function (n) {
+      document.querySelectorAll("[data-en-" + n + "]").forEach(function (e) {
+        if (!e.hasAttribute("data-de-" + n)) e.setAttribute("data-de-" + n, e.getAttribute(n) || "");
+        e.setAttribute(n, e.getAttribute("data-" + (sp === "en" ? "en" : "de") + "-" + n));
+      });
+    });
+    document.querySelectorAll("[data-sprache]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-sprache") === sp ? "true" : "false"); });
+    if (merken) { try { localStorage.setItem("fn-sprache", sp); } catch (e) {} }
+    try { document.dispatchEvent(new Event("fn-sprache")); } catch (e) {}
+  }
+  d.lang = l;
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-sprache]").forEach(function (b) { b.addEventListener("click", function () { setze(b.getAttribute("data-sprache"), true); }); });
+    setze(l, false);
+  });
+})();
+</script>
+</head>
+<body>
+<header class="kopf">
+  <div class="huelle">
+    <a class="marke" href="../index.html"><img src="../assets/bilder/zeichen.png" alt="" width="34" height="34"><span>threedelex</span></a>
+    <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../index.html"><span lang="de">Start</span><span lang="en">Home</span></a></li><li><a href="../projekte/index.html"><span lang="de">Projekte</span><span lang="en">Projects</span></a></li><li><a href="../werkzeuge/index.html"><span lang="de">Werkzeuge</span><span lang="en">Tools</span></a></li><li class="sprache" role="group" aria-label="Sprache / Language"><button type="button" data-sprache="de" lang="de" aria-pressed="true">DE</button><span aria-hidden="true">|</span><button type="button" data-sprache="en" lang="en" aria-pressed="false">EN</button></li></ul></nav>
+  </div>
+</header>
+<div class="seitenkopf fahrschein-kopf chip-kopf"><div class="huelle">
+  <div class="chip-paar"><svg class="chip-bild chip-rund" viewBox="0 0 400 400" role="img" aria-label="Fahrchip, rund: 1 Fahrt, threedelex, 3D-Druck" data-en-aria-label="Ride chip, round: 1 Fahrt (1 ride), threedelex, 3D-Druck (3D printing)">
+  <circle cx="200" cy="200" r="194" fill="#C0262B"/>
+  <defs><path id="chip-ring" d="M 200,352 A 152,152 0 1,1 200.01,352"/></defs>
+  <g fill="#F4F1EA" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900">
+    <text font-size="38"><textPath href="#chip-ring" startOffset="13%" textLength="700" lengthAdjust="spacing">threedelex • 3D-DRUCK</textPath></text>
+    <text x="200" y="222" font-size="140" text-anchor="middle">1</text>
+    <text x="200" y="280" font-size="52" text-anchor="middle">FAHRT</text>
+  </g>
+</svg></div>
+  <h1><span lang="de">Dein Fahrchip</span><span lang="en">Your ride chip</span></h1>
+  <p><span lang="de">Ein Chip aus dem 3D-Drucker, mit NFC-Tag drin. Der Tag ist nicht gesperrt: Er gehört dir. Hier steht jeden Monat eine neue Fahrt.</span><span lang="en">A chip from the 3D printer with an NFC tag inside. The tag isn't locked: it's yours. There's a new ride here every month.</span></p>
+</div></div>
+<main class="huelle">
+<ol class="fahrt">
+<li class="station" id="naechste-fahrt">
+  <span class="nr" aria-hidden="true">1</span>
+  <div class="station-inhalt">
+    <span class="etikett einblenden"><span lang="de">Aktuelle Fahrt</span><span lang="en">Current ride</span> · <span lang="de">November 2026</span><span lang="en">November 2026</span></span>
+    <h2 class="einblenden"><span lang="de">Dein Chip kann mehr</span><span lang="en">Your chip can do more</span></h2>
+    <p class="unter einblenden"><span lang="de">Der NFC-Tag in deinem Chip ist nicht gesperrt. Schreib drauf, was du willst.</span><span lang="en">The NFC tag in your chip isn't locked. Write whatever you like to it.</span></p>
+    <div class="beschreib einblenden">
+  <div class="kasten">
+    <h3><span lang="de">Variante 1: mit einer NFC-App</span><span lang="en">Option 1: with an NFC app</span></h3>
+    <ol class="schritte"><li><span lang="de">Lade eine NFC-App, zum Beispiel <b>NFC Tools</b> (Android und iPhone, kostenlos).</span><span lang="en">Get an NFC app, for example <b>NFC Tools</b> (Android and iPhone, free).</span></li><li><span lang="de">Tippe auf <b>Schreiben</b> und füge einen Datensatz hinzu: eine Adresse, einen Text, die Daten deines WLANs oder eine Telefonnummer.</span><span lang="en">Tap <b>Write</b> and add a record: a web address, a text, your Wi-Fi details or a phone number.</span></li><li><span lang="de">Halte den Chip flach an die Rückseite des Handys, meist oben in der Mitte, bis die App „fertig“ meldet.</span><span lang="en">Hold the chip flat against the back of your phone, usually near the top centre, until the app says it's done.</span></li></ol>
+  </div>
+  <div class="kasten">
+    <h3><span lang="de">Variante 2: als Home-Assistant-Tag</span><span lang="en">Option 2: as a Home Assistant tag</span></h3>
+    <ol class="schritte"><li><span lang="de">Öffne die Home-Assistant-App und gehe zu <b>Einstellungen → Tags</b>.</span><span lang="en">Open the Home Assistant app and go to <b>Settings → Tags</b>.</span></li><li><span lang="de">Tippe auf <b>Tag hinzufügen</b>, gib ihm einen Namen und halte den Chip ans Handy. Die App schreibt ihre eigene Kennung drauf.</span><span lang="en">Tap <b>Add tag</b>, give it a name and hold the chip to your phone. The app writes its own ID to it.</span></li><li><span lang="de">Öffne den Tag und wähle <b>Automatisierung erstellen</b>. Als Aktion zum Beispiel: Licht umschalten.</span><span lang="en">Open the tag and choose <b>Create automation</b>. As the action, for example: toggle a light.</span></li><li><span lang="de">Fertig: Chip ans Handy halten, Licht geht an oder aus.</span><span lang="en">Done: hold the chip to your phone and the light switches on or off.</span></li></ol>
+    <p class="hinweis"><span lang="de">So schaltet bei mir die gedruckte Filmklappe das Fernsehlicht. Wie das aussieht, zeigt der Short.</span><span lang="en">That's how my printed film clapper switches the TV light. The short shows how it looks.</span></p>
+    <div class="knoepfe" style="justify-content:flex-start"><a class="knopf zweit" href="https://www.youtube.com/shorts/crBpCPtSeTE" rel="noopener"><span lang="de">Short zur Filmklappe</span><span lang="en">Film clapper short</span> <span class="pfeil">↗</span></a></div>
+  </div>
+  <div class="kasten warnung">
+    <h3><span lang="de">Wichtig: nicht sperren</span><span lang="en">Important: don't lock it</span></h3>
+    <p><span lang="de">Viele Apps bieten „Schreibschutz“ oder „Sperren“ an. Das ist endgültig, danach lässt sich der Chip nie wieder ändern. Lass ihn offen, dann kannst du ihn jederzeit neu beschreiben.</span><span lang="en">Many apps offer “write protect” or “lock”. That's permanent: the chip can never be changed again. Leave it open and you can rewrite it any time.</span></p>
+  </div>
+</div>
+  </div>
+</li>
+<li class="station" id="entstehung">
+  <span class="nr" aria-hidden="true">↺</span>
+  <div class="station-inhalt">
+    <h2 class="einblenden"><span lang="de">So entstand der Chip</span><span lang="en">How the chip was made</span></h2>
+    <p class="unter einblenden"><span lang="de">Gedruckt auf dem Snapmaker U1 in ABS, der NFC-Tag wird mitten im Druck eingelegt und überdruckt. Die ganze Geschichte mit Zeitraffer steht im Archiv von der Formnext 2026.</span><span lang="en">Printed on the Snapmaker U1 in ABS; the NFC tag is inserted mid-print and printed over. The full story with time-lapse is in the Formnext 2026 archive.</span></p>
+    <div class="knoepfe einblenden" style="justify-content:flex-start">
+      <a class="knopf zweit" href="../formnext/rund/index.html"><span lang="de">Der runde Chip</span><span lang="en">The round chip</span> <span class="pfeil">→</span></a>
+      <a class="knopf zweit" href="../formnext/eckig/index.html"><span lang="de">Die eckige Karte</span><span lang="en">The rectangular card</span> <span class="pfeil">→</span></a>
+    </div>
+    
+  </div>
+</li>
+</ol>
+<section class="abschnitt abo">
+  <div class="knoepfe"><a class="knopf" href="https://www.youtube.com/@threedelex?sub_confirmation=1" rel="noopener"><span lang="de">Kanal abonnieren</span><span lang="en">Subscribe to the channel</span> <span class="pfeil">↗</span></a>
+  <a class="knopf zweit" href="../projekte/index.html"><span lang="de">Alle Projekte</span><span lang="en">All projects (German)</span> <span class="pfeil">→</span></a></div>
+</section>
+<section class="abschnitt" id="zum-mitbringsel">
+  <div class="kasten recht mitbringsel">
+    <h3><span lang="de">Zum Chip</span><span lang="en">About the chip</span></h3>
+    <p><span lang="de">Kein Spielzeug. Enthält einen NFC-Chip (Kleinteil). Außer Reichweite von Kindern aufbewahren.<br>Kein echter Fahrchip und kein Gutschein.</span><span lang="en">Not a toy. Contains an embedded NFC tag (small part). Keep out of reach of children.<br>Not a real fairground ride token and not a voucher.</span></p>
+    <p><span lang="de">Hersteller</span><span lang="en">Manufacturer</span>: Alexander Wendt<br><span lang="de">c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Deutschland</span><span lang="en">c/o Impressumservice Dein-Impressum<br>Stettiner Str. 41<br>35410 Hungen<br>Germany</span><br><span lang="de">E-Mail</span><span lang="en">Email</span>: <a href="mailto:kontakt@threedelex.de">kontakt@threedelex.de</a></p>
+  </div>
+</section>
+</main>
+<footer class="fuss">
+  <div class="huelle">
+    <div>
+      <p class="ki"><span lang="de">Konstruktion und Animation mit KI-Hilfe</span><span lang="en">Design and animation with AI assistance</span></p>
+      <p><span lang="de">threedelex – 3D-Druck-Projekte und Videos. Keine Cookies, nur eine anonyme Zählung der Seitenaufrufe.</span><span lang="en">threedelex – 3D printing projects and videos. No cookies, only an anonymous count of page views. The rest of this site is in German.</span></p>
+    </div>
+    <nav class="sozial" aria-label="threedelex in sozialen Netzwerken"><a href="https://www.youtube.com/@threedelex" rel="noopener" aria-label="threedelex auf YouTube"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="#ff0033"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://www.instagram.com/threedelex/" rel="noopener" aria-label="threedelex auf Instagram"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="#e4405f"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a><a href="https://www.facebook.com/profile.php?id=61596404622083" rel="noopener" aria-label="threedelex auf Facebook"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="#0866ff"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a></nav>
+    <nav aria-label="Rechtliches"><a href="../impressum/index.html"><span lang="de">Impressum</span><span lang="en">Legal notice (German)</span></a><a href="../datenschutz/index.html"><span lang="de">Datenschutz</span><span lang="en">Privacy policy (German)</span></a></nav>
+  </div>
+</footer>
+<script src="../assets/js/shorts.js" defer></script>
+<script src="../assets/js/effekte.js" defer></script>
+<img src="https://threedelex.goatcounter.com/count?p=/chip/" alt="" width="1" height="1" style="position:absolute;left:-9999px" aria-hidden="true" referrerpolicy="no-referrer">
+</body>
+</html>
