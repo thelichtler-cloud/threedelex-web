@@ -328,6 +328,9 @@ td:not([colspan]) { white-space: nowrap; }
 .zr-video .zr-anzeige { position: absolute; left: 12px; top: 12px; display: inline-flex; gap: 8px; align-items: center; padding: 6px 12px; border-radius: 999px;
   background: rgba(15, 26, 43, .75); color: #fff; font: 700 .78rem/1 system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; pointer-events: none; }
 .zr-video .zr-anzeige::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #ef4444; animation: puls 1.2s ease-in-out infinite; }
+.zr-liste { display: grid; gap: 22px; max-width: 900px; }
+.zr-figur { margin: 0; }
+.zr-figur figcaption { margin-top: 8px; font-size: .9rem; color: var(--leise); }
 
 /* Analysen */
 .analysen { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
