@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fahrt eingelöst! · threedelex</title>
-<meta name="description" content="Fahrschein FN26 eingelöst: wie dein Chip entstand, die Shorts und Projekte zum Nachdrucken von threedelex.">
+<title>Die Fahrchips der Formnext 2026 · threedelex</title>
+<meta name="description" content="Zwei Fahrchips aus dem 3D-Drucker von threedelex: die eckige Karte und der runde Chip, beide mit NFC-Tag.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#0f1a2b">
 <link rel="icon" href="../assets/bilder/zeichen.png">
@@ -31,10 +31,21 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
 .chip-kopf .chip-bild { display: block; height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .35)); margin-bottom: 8px; }
 .chip-kopf .chip-eckig { width: 300px; max-width: 78vw; transform: rotate(-3deg); }
 .chip-kopf .chip-rund { width: 210px; max-width: 56vw; }
+.chip-paar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+.chip-paar .chip-bild { display: block; height: auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .35)); }
+.chip-paar .chip-eckig { width: 220px; max-width: 46vw; transform: rotate(-3deg); }
+.chip-paar .chip-rund { width: 150px; max-width: 30vw; }
+.versionen { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 14px; }
+.version { display: flex; flex-direction: column; }
+.version img { display: block; width: 100%; height: auto; background: #eceef2; }
+.version .version-inhalt { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.version h3 { margin: 0; font-size: 1.25rem; }
+.version .chipzahlen { margin-top: 6px; }
+.version .knoepfe { justify-content: flex-start; margin-top: auto; padding-top: 12px; }
 </style>
 <script>
 (function () {
-  var d = document.documentElement, T = ["Fahrt eingelöst!", "Ride redeemed!"], B = ["Fahrschein FN26 eingelöst: wie dein Chip entstand, die Shorts und Projekte zum Nachdrucken von threedelex.", "Ticket FN26 redeemed: how your chip was made, the shorts, and projects you can print yourself, from threedelex."], ATT = ["alt", "aria-label", "title"], l = null;
+  var d = document.documentElement, T = ["Die Fahrchips der Formnext 2026", "The Formnext 2026 ride chips"], B = ["Zwei Fahrchips aus dem 3D-Drucker von threedelex: die eckige Karte und der runde Chip, beide mit NFC-Tag.", "Two 3D-printed ride chips from threedelex: the rectangular card and the round chip, both with an NFC tag."], ATT = ["alt", "aria-label", "title"], l = null;
   try { l = localStorage.getItem("fn-sprache"); } catch (e) {}
   if (l !== "de" && l !== "en") l = ((navigator.language || "").toLowerCase().indexOf("de") === 0) ? "de" : "en";
   function setze(sp, merken) {
@@ -67,84 +78,48 @@ html:not([lang="en"]) a[lang="en"], html[lang="en"] a[lang="de"] { display: none
     <nav aria-label="Hauptnavigation"><ul class="nav"><li><a href="../index.html"><span lang="de">Start</span><span lang="en">Home</span></a></li><li><a href="../projekte/index.html"><span lang="de">Projekte</span><span lang="en">Projects</span></a></li><li><a href="../werkzeuge/index.html"><span lang="de">Werkzeuge</span><span lang="en">Tools</span></a></li><li class="sprache" role="group" aria-label="Sprache / Language"><button type="button" data-sprache="de" lang="de" aria-pressed="true">DE</button><span aria-hidden="true">|</span><button type="button" data-sprache="en" lang="en" aria-pressed="false">EN</button></li></ul></nav>
   </div>
 </header>
-<div class="seitenkopf fahrschein-kopf"><div class="huelle">
-  <div class="fahrschein" role="img" aria-label="Fahrschein FN26: 1 Fahrt mit threedelex, eingelöst" data-en-aria-label="Ticket FN26: 1 ride with threedelex, redeemed">
-    <span class="fs-oben"><span lang="de">Fahrschein · FN26</span><span lang="en">Ticket · FN26</span></span>
-    <span class="fs-titel"><span lang="de">1 Fahrt mit threedelex</span><span lang="en">1 ride with threedelex</span></span>
-    <span class="fs-unten"><span lang="de">Formnext 2026 · eine Runde</span><span lang="en">Formnext 2026 · one round</span></span>
-    <span class="stempel" aria-hidden="true"><span lang="de">EINGELÖST</span><span lang="en">REDEEMED</span></span>
-  </div>
-  <h1><span lang="de">Fahrt eingelöst!</span><span lang="en">Ride redeemed!</span></h1>
-  <p><span lang="de">Schön, dass wir uns auf der Formnext getroffen haben. Einsteigen, die Fahrt geht los:</span><span lang="en">Good to have met you at Formnext. All aboard, here we go:</span></p>
+<div class="seitenkopf fahrschein-kopf chip-kopf"><div class="huelle">
+  <div class="chip-paar"><svg class="chip-bild chip-eckig" viewBox="0 0 600 400" role="img" aria-label="Fahrchip, eckige Karte: threedelex, 1 Fahrt, 3D-Druck" data-en-aria-label="Ride chip, rectangular card: threedelex, 1 Fahrt (1 ride), 3D-Druck (3D printing)">
+  <rect x="4" y="4" width="592" height="392" rx="44" fill="#C0262B"/>
+  <rect x="34" y="34" width="532" height="332" rx="6" fill="none" stroke="#F4F1EA" stroke-width="12"/>
+  <g fill="#F4F1EA" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" text-anchor="middle">
+    <text x="300" y="138" font-size="74" textLength="420" lengthAdjust="spacingAndGlyphs">threedelex</text>
+    <text x="300" y="262" font-size="122" textLength="470" lengthAdjust="spacingAndGlyphs">1 FAHRT</text>
+    <text x="300" y="340" font-size="64" textLength="360" lengthAdjust="spacingAndGlyphs">3D-DRUCK</text>
+  </g>
+</svg><svg class="chip-bild chip-rund" viewBox="0 0 400 400" role="img" aria-label="Fahrchip, rund: 1 Fahrt, threedelex, 3D-Druck" data-en-aria-label="Ride chip, round: 1 Fahrt (1 ride), threedelex, 3D-Druck (3D printing)">
+  <circle cx="200" cy="200" r="194" fill="#C0262B"/>
+  <defs><path id="chip-ring" d="M 200,352 A 152,152 0 1,1 200.01,352"/></defs>
+  <g fill="#F4F1EA" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900">
+    <text font-size="38"><textPath href="#chip-ring" startOffset="13%" textLength="700" lengthAdjust="spacing">threedelex • 3D-DRUCK</textPath></text>
+    <text x="200" y="222" font-size="140" text-anchor="middle">1</text>
+    <text x="200" y="280" font-size="52" text-anchor="middle">FAHRT</text>
+  </g>
+</svg></div>
+  <h1><span lang="de">Die Fahrchips der Formnext 2026</span><span lang="en">The Formnext 2026 ride chips</span></h1>
+  <p><span lang="de">Schön, dass wir uns auf der Formnext getroffen haben. Es gibt zwei Versionen, beide mit NFC-Tag:</span><span lang="en">Good to have met you at Formnext. There are two versions, both with an NFC tag:</span></p>
 </div></div>
 <main class="huelle">
-<ol class="fahrt">
-<li class="station" id="zeitraffer">
-  <span class="nr" aria-hidden="true">1</span>
-  <div class="station-inhalt">
-    <h2 class="einblenden"><span lang="de">So entstand dein Chip</span><span lang="en">How your chip was made</span></h2>
-    <p class="unter einblenden"><span lang="de">Echter Zeitraffer aus der Druckerkamera, gedruckt bei threedelex.</span><span lang="en">A real time-lapse from the printer camera, printed at threedelex.</span></p>
-    <div class="zr-liste einblenden">
-<figure class="zr-figur">
-<div class="zr-video">
-  <video src="../assets/video/formnext_fahrchip_zeitraffer_u1.mp4" poster="../assets/bilder/formnext_fahrchip_zeitraffer_u1_start.webp" autoplay muted loop playsinline preload="metadata" controls width="960" height="540"
-    aria-label="Zeitraffer: 25 runde Fahrchips werden auf dem Snapmaker U1 gedruckt" data-en-aria-label="Time-lapse: 25 round ride chips being printed on the Snapmaker U1"></video>
-  <span class="zr-anzeige"><span lang="de">Zeitraffer</span><span lang="en">Time-lapse</span></span>
-</div>
-<figcaption><span lang="de">Snapmaker U1: 25 runde Chips auf einer Platte</span><span lang="en">Snapmaker U1: 25 round chips on one plate</span></figcaption>
-</figure>
-<figure class="zr-figur">
-<div class="zr-video">
-  <video src="../assets/video/formnext_fahrchip_zeitraffer.mp4" poster="../assets/bilder/formnext_fahrchip_zeitraffer_start.webp" autoplay muted loop playsinline preload="metadata" controls width="960" height="540"
-    aria-label="Zeitraffer: der Fahrchip wird gedruckt" data-en-aria-label="Time-lapse: the ride chip being printed"></video>
-  <span class="zr-anzeige"><span lang="de">Zeitraffer</span><span lang="en">Time-lapse</span></span>
-</div>
-<figcaption><span lang="de">Bambu Lab A1 mini: 9 runde Chips</span><span lang="en">Bambu Lab A1 mini: 9 round chips</span></figcaption>
-</figure>
-</div>
+<section class="abschnitt" id="versionen">
+  <div class="versionen">
+    <article class="karte version einblenden">
+      <img src="../assets/bilder/chip_karte_vorne.webp" alt="Fahrkarte 60 × 40 mm, Vorderseite" data-en-alt="Ride card 60 × 40 mm, front" width="1200" height="900" loading="lazy">
+      <div class="version-inhalt">
+        <h3><span lang="de">Die eckige Karte</span><span lang="en">The rectangular card</span></h3>
+        <dl class="chipzahlen"><dt><span lang="de">Maße</span><span lang="en">Size</span></dt><dd><span lang="de">60 × 40 × 2,4 mm</span><span lang="en">60 × 40 × 2.4 mm</span></dd><dt><span lang="de">Druckzeit</span><span lang="en">Print time</span></dt><dd><span lang="de">ca. 21 min je Karte</span><span lang="en">approx. 21 min per card</span></dd></dl>
+        <div class="knoepfe"><a class="knopf" href="../formnext/eckig/index.html"><span lang="de">Zur Karte</span><span lang="en">To the card</span> <span class="pfeil">→</span></a></div>
+      </div>
+    </article>
+    <article class="karte version einblenden v1">
+      <img src="../assets/bilder/chip_rund_vorne.webp" alt="Runder Fahrchip Ø 38 mm, Vorderseite" data-en-alt="Round ride chip Ø 38 mm, front" width="1200" height="900" loading="lazy">
+      <div class="version-inhalt">
+        <h3><span lang="de">Der runde Chip</span><span lang="en">The round chip</span></h3>
+        <dl class="chipzahlen"><dt><span lang="de">Maße</span><span lang="en">Size</span></dt><dd><span lang="de">Ø 38 × 2,4 mm</span><span lang="en">Ø 38 × 2.4 mm</span></dd><dt><span lang="de">Druckzeit</span><span lang="en">Print time</span></dt><dd><span lang="de">ca. 14 min je Chip</span><span lang="en">approx. 14 min per chip</span></dd></dl>
+        <div class="knoepfe"><a class="knopf" href="../formnext/rund/index.html"><span lang="de">Zum Chip</span><span lang="en">To the chip</span> <span class="pfeil">→</span></a></div>
+      </div>
+    </article>
   </div>
-</li>
-<li class="station" id="shorts">
-  <span class="nr" aria-hidden="true">2</span>
-  <div class="station-inhalt">
-    <h2 class="einblenden"><span lang="de">Die Shorts</span><span lang="en">The shorts</span></h2>
-    <p class="unter einblenden"><span lang="de">Messen, konstruieren, drucken, jeweils unter einer Minute.</span><span lang="en">Measure, design, print: each one under a minute. The videos are in German.</span></p>
-    <div class="shorts">
-<figure class="short einblenden">
-  <div class="yt" data-id="0qTm781plgg" data-titel="Sirup-Chaos in der Kühlschranktür? KI konstruiert, ich drucke" data-titel-en="Syrup chaos in the fridge door? AI designs it, I print it">
-    <a class="yt-link" href="https://www.youtube.com/shorts/0qTm781plgg" rel="noopener"><img src="../assets/bilder/short_sirup.webp" alt="Vorschaubild: Sirup-Halter" data-en-alt="Preview image: Syrup holder" width="540" height="960" loading="lazy"><span class="play" aria-hidden="true"></span><span class="yt-marke"><span lang="de">YouTube (Google) · lädt erst nach Zustimmung</span><span lang="en">YouTube (Google) · loads only after you agree</span></span></a>
-  </div>
-  <figcaption><strong><span lang="de">Sirup-Halter</span><span lang="en">Syrup holder</span></strong><small><span lang="de">Sirup-Chaos in der Kühlschranktür? KI konstruiert, ich drucke</span><span lang="en">Syrup chaos in the fridge door? AI designs it, I print it</span></small></figcaption>
-</figure>
-<figure class="short einblenden v1">
-  <div class="yt" data-id="V2r4JGvmjco" data-titel="Z-Offset wandert? Nicht dran drehen!" data-titel-en="Z offset drifting? Don't touch the screw!">
-    <a class="yt-link" href="https://www.youtube.com/shorts/V2r4JGvmjco" rel="noopener"><img src="../assets/bilder/short_hotend.webp" alt="Vorschaubild: Hotend A1 mini" data-en-alt="Preview image: Hotend A1 mini" width="540" height="960" loading="lazy"><span class="play" aria-hidden="true"></span><span class="yt-marke"><span lang="de">YouTube (Google) · lädt erst nach Zustimmung</span><span lang="en">YouTube (Google) · loads only after you agree</span></span></a>
-  </div>
-  <figcaption><strong><span lang="de">Hotend A1 mini</span><span lang="en">Hotend A1 mini</span></strong><small><span lang="de">Z-Offset wandert? Nicht dran drehen!</span><span lang="en">Z offset drifting? Don't touch the screw!</span></small></figcaption>
-</figure>
-<figure class="short einblenden v2">
-  <div class="yt" data-id="7aeF0YlQs80" data-titel="Deckel verloren? Die KI konstruiert, der 3D-Drucker druckt" data-titel-en="Lost a lid? AI designs it, the 3D printer prints it">
-    <a class="yt-link" href="https://www.youtube.com/shorts/7aeF0YlQs80" rel="noopener"><img src="../assets/bilder/short_deckel.webp" alt="Vorschaubild: Ersatzdeckel" data-en-alt="Preview image: Replacement lid" width="540" height="960" loading="lazy"><span class="play" aria-hidden="true"></span><span class="yt-marke"><span lang="de">YouTube (Google) · lädt erst nach Zustimmung</span><span lang="en">YouTube (Google) · loads only after you agree</span></span></a>
-  </div>
-  <figcaption><strong><span lang="de">Ersatzdeckel</span><span lang="en">Replacement lid</span></strong><small><span lang="de">Deckel verloren? Die KI konstruiert, der 3D-Drucker druckt</span><span lang="en">Lost a lid? AI designs it, the 3D printer prints it</span></small></figcaption>
-</figure>
-    </div>
-    <p class="hinweis"><span lang="de">Bis zum Klick werden nur Vorschaubilder von dieser Seite gezeigt. Beim Antippen erscheint am Video ein Hinweis, erst „Video laden“ verbindet mit YouTube (Google, auch USA). Mehr dazu in der <a href="../datenschutz/index.html">Datenschutzerklärung</a>.</span><span lang="en">Until you tap a video, only preview images from this site are shown. Tapping shows a notice first; only “Load video” connects to YouTube (Google, also the USA). More in the <a href="../datenschutz/index.html">privacy policy (German)</a>.</span></p>
-  </div>
-</li>
-<li class="station" id="nachdrucken">
-  <span class="nr" aria-hidden="true">3</span>
-  <div class="station-inhalt">
-    <h2 class="einblenden"><span lang="de">Projekte zum Nachdrucken</span><span lang="en">Projects to print yourself</span></h2>
-    <p class="unter einblenden"><span lang="de">Fertig getestete Teile gibt es als kostenlose Druckdatei auf MakerWorld.</span><span lang="en">Parts that are fully tested are available as free print files on MakerWorld.</span></p>
-    <div class="knoepfe einblenden" style="justify-content:flex-start">
-      <a class="knopf zweit" lang="de" href="https://makerworld.com/de/@threedelex" rel="noopener">MakerWorld <span class="pfeil">↗</span></a>
-      <a class="knopf zweit" lang="en" href="https://makerworld.com/en/@threedelex" rel="noopener">MakerWorld <span class="pfeil">↗</span></a>
-      <a class="knopf zweit" href="../projekte/index.html"><span lang="de">Alle Projekte</span><span lang="en">All projects (German)</span> <span class="pfeil">→</span></a>
-    </div>
-  </div>
-</li>
-</ol>
+</section>
 <section class="abschnitt abo">
   <div class="knoepfe"><a class="knopf" href="https://www.youtube.com/@threedelex?sub_confirmation=1" rel="noopener"><span lang="de">Kanal abonnieren</span><span lang="en">Subscribe to the channel</span> <span class="pfeil">↗</span></a></div>
 </section>
